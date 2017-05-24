@@ -18,9 +18,10 @@ but accepts two commands:
 
 def handle(msg):
     chat_id = msg['chat']['id']
+    username = msg['from']['firstname']
     command = msg['text']
 
-    print 'Got command: %s' % command
+    print 'Got command: %s from user %u' % command, username
 
     if command == '/roll':
         bot.sendMessage(chat_id, random.randint(1,6))
