@@ -18,7 +18,7 @@ but accepts two commands:
 
 def handle(msg):
     chat_id = msg['chat']['id']
-    username = msg['from']['firstname']
+    username = msg['from']['first_name']
     command = msg['text']
 
     print 'Got command: %s from user %u' % command, username
