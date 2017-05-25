@@ -1,0 +1,9 @@
+curl "https://todoist.com/oauth/access_token" -d "client_id=ea6b347e6b014a91ab389163609766a1" -d "client_secret=3b5bea1241954872934a3faaf49481ea" -d "code=ddc3dd1c3b0fa3c2c6714329be8724325b6b6946" -d "redirect_uri=https://example.com"
+
+$ curl "https://todoist.com/oauth/authorize" -d "client_id=ea6b347e6b014a91ab389163609766a1" -d "scope=data:read_write" -d "state=my_secret_string"
+
+https://todoist.com/oauth/authorize?client_id=ea6b347e6b014a91ab389163609766a1&scope=data:read_write&state=my_secret_string
+
+
+
+Todoist access token: 0138240ad9cefd0cd28bbd9cbd726fd843bcf0e8
