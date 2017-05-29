@@ -4,6 +4,7 @@ import datetime
 import telepot
 import todoist
 from telepot.loop import MessageLoop
+import MySQLdb
 
 """
 After **inserting token** in the source code, run it:
@@ -39,6 +40,14 @@ def handle(msg):
         s = tapi.commit()
         bot.sendMessage(chat_id, 'Task added for today: ' + command [3:])
         print('Task added for today: ' + command [3:])
+    elif command[:20] == 'http://www.funda.nl/':
+        db = MySQLdb.connect("localhost", "atque2ru_python", "makbet11", "atque2ru_python")
+        cursor = db.cursor()
+        sql = "INSERT INTO `funda_listings` (`url`, `date_added`, `address`, `price`, `space`, `timetowork`, `type`) VALUES ('%s', CURRENT_TIMESTAMP, '%s', '%d', '%d', '%d', '%s');" % (command, '-', 0, 0, 0, '-')
+        cursor.execute(sql)
+        db.commit()
+        db.close()
+        bot.sendMessage(chat_id, 'Funda listing added to database.')
 
 
 bot = telepot.Bot('334973904:AAG0hVVNf2y6Wb3yyg_aNVozmTTGT7_bWkg')
